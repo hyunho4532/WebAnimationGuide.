@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://codepen.io/GreenSock/pen/gOWxmWG.css">
+    <style>
+        body {
+            background: gray;
+        }
+        
+        .orange {
+            width: 100px;
+            height: 100px;
+            background: orange;
+        }
+
+        .green {
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="orange"></div>
+    <div class="green"></div>
+    
+    <script>
+        // Wait for the DOM to load before running animations
+        document.addEventListener('DOMContentLoaded', function() {
+            gsap.to('.orange', {
+                x: 300,
+                repeat: 3,
+                delay: 2,
+                repeatDelay: 1,
+                ease: 'power2.inOut',
+                yoyo: true,
+            });
+        });
+    </script>
+</body>
+</html>
