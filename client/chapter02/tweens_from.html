@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://codepen.io/GreenSock/pen/gOWxmWG.css">
+    <style>
+        body{
+            background: gray;
+        }
+          
+        .circle{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 40vw;
+            height: 40vw;
+            border-radius: 50%;
+            background: dodgerblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            border: 6px solid black;
+            overflow: hidden;
+        }
+          
+        .bg{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 40vw;
+            height: 40vw;
+            border-radius: 50%;
+            background: darkblue;
+        }
+          
+        .circle span{
+            color: #fff;
+            font-size: 5vw;
+            position:relative;
+            z-index: 100;
+          
+        }
+    </style>
+</head>
+<body>
+    <div class="circle">
+        <div class="bg"></div>
+        <span>hover me</span>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const circle = document.querySelector(".circle")
+            const bg = document.querySelector(".bg")
+
+            let getter = gsap.getProperty(bg)
+            let x = getter('width', 'vw')
+
+            console.log(gsap.getProperty(bg, 'scale'));
+
+            circle.addEventListener('mouseenter', () => {
+                gsap.fromTo(bg, {
+                    scale: 0,
+                }, {
+                    scale: 1,
+                });
+            }); 
+        });
+    </script>
+</body>
+</html>
